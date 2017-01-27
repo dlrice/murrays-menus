@@ -12,11 +12,14 @@ cache = {}
 def my_default_hanlder(message):
     now = datetime.now()
     
-    if now.weekday() in [5, 6]:    
+    if now.weekday() in [5, 6]:
         message.reply("It's the weekend, you have to make your own lunch.")
         return
 
     if now.hour >= 14:
+       if now.weekday() == 4:
+            message.reply("It's Friday afternoon, there's no point showing you the menu now because you will probably forget it by Monday.")
+            return
        now = now + timedelta(days=1)
 
     date = now.strftime('%d.%-m.%y')
