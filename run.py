@@ -18,7 +18,11 @@ def my_default_hanlder(message):
 
     if now.hour >= 14:
        if now.weekday() == 4:
-            message.reply("It's Friday afternoon, there's no point showing you the menu now because you will probably forget it by Monday.")
+            nextFriday = now + timedelta(weeks=1)
+            if nextFriday.month != now.month:
+                message.reply("Don't worry about lunch, it's Drinks & Nibbles at 4pm!")
+            else:
+                message.reply("It's Friday afternoon, there's no point showing you the menu now because you will probably forget it by Monday.")
             return
        now = now + timedelta(days=1)
 
