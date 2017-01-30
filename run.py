@@ -41,7 +41,7 @@ def my_default_hanlder(message):
     for item in day['ss'][0]['rs']:
         if 'n' in item:
             dish = item['n']
-            if 'sp' in price:
+            if 'sp' in item:
                 price = item['sp']
                 reply += '£{} *{}*\n'.format(price, dish) 
             else:
