@@ -39,8 +39,13 @@ def my_default_hanlder(message):
     day = [x for x in menu['ms'] if date in x['n']][0]
     reply = '\n*--- MENU FOR {} ---*\n'.format(date)
     for item in day['ss'][0]['rs']:
-        reply += '£{} *{}*\n'.format(item['sp'], item['n']) 
-
+        if 'n' in item:
+            dish = item['n']
+            if 'sp' in price:
+                price = item['sp']
+                reply += '£{} *{}*\n'.format(price, dish) 
+            else:
+                reply += '*{}*\n'.format(dish)
     cache[date] = reply
     message.reply(reply)
 
