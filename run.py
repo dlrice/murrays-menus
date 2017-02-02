@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from slackbot.bot import Bot, default_reply, listen_to
 import re
 from lxml import html
