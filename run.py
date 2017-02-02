@@ -39,7 +39,7 @@ def defaultHanlder(message):
                 sentence = "You're too late, it's already after 2pm!"
         else:
             sentence = "You're too late, it's already after 2pm!"
-        late = formatLine(nowWeekday, sentence)
+        late = formatLine([nowWeekday], sentence)
 
     # Days in the past
     pastDays = set(DAYS_OF_WEEK[:now.weekday()])
