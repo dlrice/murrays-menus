@@ -74,8 +74,6 @@ def defaultHanlder(message):
     if not reply.strip():
         reply = "Hmmm... I didn't understand that. Maybe you're too hungry to type properly?"
     
-    reply += "\n\n*P.S. @mari don't forget that you are vegetarian for this month! Stay committed to the cause.*"
-
     message.reply(reply)
 
 def formatLine(days, sentence):
