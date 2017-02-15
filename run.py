@@ -12,17 +12,24 @@ DAYS_OF_WEEK = ['monday', 'tuesday', 'wednesday','thursday','friday', 'saturday'
 WEEKDAYS = ['monday', 'tuesday', 'wednesday','thursday','friday']
 WEEKEND = ['saturday', 'sunday']
 
+numberOfMessages = 0
+
 @default_reply
 @listen_to('@murrays-menus')
 def defaultHanlder(message):
     
+    messageText = message.body['text']
+    
+    global numberOfMessages 
+    numberOfMessages += 1
+    print(numberOfMessages, messageText)
+
     now = datetime.now()
     nowWeekday = now.strftime('%A').lower()
     if now.weekday() in [5, 6]:
         message.reply("It's the weekend and the lunch Gods haven't posted a menu yet. Try again Monday morning.")
         return
 
-    messageText = message.body['text']
     if messageText:
         days = getDaysFromMessage(messageText)
     else:
@@ -73,6 +80,9 @@ def defaultHanlder(message):
 
     if not reply.strip():
         reply = "Hmmm... I didn't understand that. Maybe you're too hungry to type properly?"
+        reply += "\n\nThings I do understand: *week*, *today*, *tomorrow* and any day of the week. "
+        reply += "You can combine these in a single sentence seperated by commas or spaces "
+        reply += "(eg `today tomorrow friday`)"
     
     message.reply(reply)
 
