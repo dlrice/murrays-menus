@@ -9,8 +9,7 @@ from datetime import datetime, timedelta
 cache = {}
 NOT_WORD_CHARACTERS = re.compile(r'\W+')
 DAYS_OF_WEEK = ['monday', 'tuesday', 'wednesday','thursday','friday', 'saturday', 'sunday']
-WEEKDAYS = ['monday', 'tuesday', 'wednesday','thursday','friday']
-WEEKEND = ['saturday', 'sunday']
+WEEKDAYS, WEEKEND = DAYS_OF_WEEK[:5], DAYS_OF_WEEK[5:]
 
 numberOfMessages = 0
 
